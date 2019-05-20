@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <title>Count Down Clock</title>
+        
+        <style type="text/css">
+            body{
+                background-image: linear-gradient(to right, #4e342e , #3e2723);
+                font-family: monospace;
+            }
+            .countdownContainer{
+                position : absolute;
+                top : 50%;
+                left : 50%;
+                transform : translateX(-50%) translateY(-50%);
+                text-align : center;
+                background:#ddd;
+                border: 1px solid #999;
+                padding : 10px;
+                box-shadow: 0 0 5px 3px #888;
+                border-radius: 10px;
+                width: 75%;
+            }
+
+            .info{
+                font-size :50px;
+            }
+
+            #demo{
+                position : absolute;
+                top : 10%;
+                left : 50%;
+                transform : translateX(-50%) translateY(-50%);
+                text-align : center;
+            }
+            h1{
+                background-image: linear-gradient(to right, #4e342e , #3e2723);
+                border: 1px solid #fff;
+                padding : 10px;
+                border-radius: 10px;
+                color: #fff;
+            }
+            
+        </style>
+    </head>
+<body>
+    
+    <table class="countdownContainer">
+        <tr class="info">
+            <td colspan="4" style="color:maroon;">Count Down Using javascript<hr></td>
+        </tr>
+        
+        <tr class="info">
+            <!-- Define Static Value Here -->
+            <td id="days">0 : </td>
+            <td id="hours">0 : </td>
+            <td id="minutes">0 : </td>
+            <td id="seconds">0 : </td>
+        </tr>
+        
+        <tr>
+            <td>Days</td>
+            <td>Hours</td>
+            <td>Minutes</td>
+            <td>Seconds</td>
+        </tr>
+
+    </table>
+    <h1 id="demo"></h1>
+    <script type="text/javascript">
+// ---------------------------- 1st METHOD ---------------------------- //
+
+        // function countdown(){
+        //     var now = new Date();
+        //     var eventDate = new Date(2016,11,25).getTime();
+
+        //     var currentTime = now.getTime();
+        //     var eventTime = eventDate.getTime();
+        //     var remTime = eventTime - currentTime;
+
+        //     // var s = Math.floor(remTime/1000);
+        //     // var m = Math.floor(s/60);
+        //     // var h = Math.floor(m/60);
+        //     // var d = Math.floor(h/24);
+
+        //     var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        //     var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //     var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        //     var s = Math.floor((distance % (1000 * 60)) / 1000);
+                        
+        //     h %= 24;
+        //     m %= 60;
+        //     s %= 60;
+            
+        //     h = (h < 10) ? "0" + h : h;
+        //     m = (m < 10) ? "0" + m : m;
+        //     s = (s < 10) ? "0" + s : s;
+            
+        //     document.getElementById("days").textContent = d;
+        //     document.getElementById("days").innerText = d;
+            
+        //     document.getElementById("hours").textContent = h;
+        //     document.getElementById("minuter").textContent = m;
+        //     document.getElementById("seconds").textContent = s;
+
+        //     setTimeout(countdown,1000);            
+        // }
+        // countdown();
+
+
+
+
+// ---------------------------- 2nd METHOD ---------------------------- //
+
+
+            // Set the date we're counting down to
+            var countDownDate = new Date("May 21, 2019 17:37:25").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+            document.getElementById("demo").innerHTML = "May 21, 2019 17:37:25";
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("days").innerHTML = days + "d";
+            document.getElementById("hours").innerHTML = hours + "h";
+            document.getElementById("minutes").innerHTML = minutes + "m ";
+            document.getElementById("seconds").innerHTML = seconds + "s "
+
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "Time Out...";
+            }
+            }, 1000);
+    </script>
+</body>    
+</html>
