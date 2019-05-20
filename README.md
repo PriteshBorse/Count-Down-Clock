@@ -1,2 +1,2 @@
 # Count-Down-Clock
-Using Javascript
+Using JavaScript
